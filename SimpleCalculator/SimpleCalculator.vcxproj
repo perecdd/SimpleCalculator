@@ -140,11 +140,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="RPNGenerator.cpp" />
     <ClCompile Include="SimpleCalculator.cpp" />
     <ClCompile Include="SyntaxAnalyzer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Calculator.h" />
     <ClInclude Include="RPNGenerator.h" />
     <ClInclude Include="SyntaxAnalyzer.h" />
   </ItemGroup>
