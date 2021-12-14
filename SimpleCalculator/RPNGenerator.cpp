@@ -40,14 +40,14 @@ bool RPNGenerator::E33()
 	if (line_[pointer] == '+') {
 		pointer++;
 		if (!E2()) return false;
-		if (!E33()) return false;
 		result.push_back('+');
+		if (!E33()) return false;
 	}
 	else if (line_[pointer] == '-') {
 		pointer++;
 		if (!E2()) return false;
-		if (!E33()) return false;
 		result.push_back('-');
+		if (!E33()) return false;
 	}
 	return true;
 }
@@ -66,14 +66,14 @@ bool RPNGenerator::E22()
 	if (line_[pointer] == '*') {
 		pointer++;
 		if (!E1()) return false;
-		if (!E22()) return false;
 		result.push_back('*');
+		if (!E22()) return false;
 	}
 	else if (line_[pointer] == '/') {
 		pointer++;
 		if (!E1()) return false;
-		if (!E22()) return false;
 		result.push_back('/');
+		if (!E22()) return false;
 	}
 	return true;
 }

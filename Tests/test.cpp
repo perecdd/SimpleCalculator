@@ -1,7 +1,8 @@
 #include "pch.h"
-#include "../SimpleCalculator/SyntaxAnalyzer.cpp"
-#include "../SimpleCalculator/RPNGenerator.cpp"
-#include "../SimpleCalculator/Calculator.cpp"
+#include "../Calculator/SyntaxAnalyzer.cpp"
+#include "../Calculator/RPNGenerator.cpp"
+#include "../Calculator/Calculator.cpp"
+
 TEST(SyntaxAnalyzer, GoodData) {
 	SyntaxAnalyzer analyzer;
 	for (int i = 0; i < 10; i++) {
@@ -19,6 +20,7 @@ TEST(SyntaxAnalyzer, GoodData) {
 	EXPECT_TRUE(analyzer.Analyze("(1/1)"));
 	EXPECT_TRUE(analyzer.Analyze("1+1*1/1-1+(1)*(1/(2))"));
 	EXPECT_TRUE(analyzer.Analyze("(5*6+3)+7*3"));
+	EXPECT_TRUE(analyzer.Analyze("2+3-4"));
 }
 
 TEST(SyntaxAnalyzer, BadData) {
@@ -81,7 +83,8 @@ TEST(RPNGenerator, GoodData) {
 	EXPECT_EQ("11/", generator.generate("(1/1)"));
 	EXPECT_EQ("564*+", generator.generate("5+6*4"));
 	EXPECT_EQ("56*3+73*+", generator.generate("(5*6+3)+7*3"));
-	EXPECT_EQ("555**56*3+73*++", generator.generate("5*5*5+(5*6+3)+7*3"));
+	EXPECT_EQ("55*5*56*3++73*+", generator.generate("5*5*5+(5*6+3)+7*3"));
+	EXPECT_EQ("12-3-", generator.generate("1-2-3"));
 }
 
 TEST(RPNGenerator, BadData) {
